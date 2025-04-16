@@ -10,6 +10,7 @@ const AddEditNotes = ({ onClose, noteData, type, getAllNotes }) => {
   const [tags, setTags] = useState(noteData?.tags || [])
   const [error, setError] = useState(null)
 
+//var="http://localhost:3000/api/note/edit/";  
   //   Edit Note
   const editNote = async () => {
     const noteId = noteData._id
@@ -17,7 +18,7 @@ const AddEditNotes = ({ onClose, noteData, type, getAllNotes }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/note/edit/" + noteId,
+        "https://se-project-backend-2.onrender.com" + noteId,
         { title, content, tags },
         { withCredentials: true }
       )
@@ -45,7 +46,7 @@ const AddEditNotes = ({ onClose, noteData, type, getAllNotes }) => {
   const addNewNote = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/note/add",
+        "https://se-project-backend-2.onrender.com",
         { title, content, tags },
         { withCredentials: true }
       )
